@@ -1,12 +1,15 @@
 import React from "react";
 import "./Expenfilter.css";
 
-const Expenfilter = () => {
+const Expenfilter = (props) => {
+    const dropdownchange = (event) =>{
+        props.onChangefilter(event.target.value);
+    }
   return (
     <div className="expen-filter">
       <div className="expen-filter_control">
         <label>Upadte Company Year</label>
-        <select>
+        <select value={props.selectd} onChange={dropdownchange}>
           <option value="2016">2016</option>
           <option value="2017">2017</option>
           <option value="2018">2018</option>
