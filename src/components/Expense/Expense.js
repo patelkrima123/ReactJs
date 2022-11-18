@@ -8,7 +8,7 @@ const Expense = (props) => {
   const [filteryear , setfilteryear] = useState('2020');
   const filterchnagehandler = selectyear =>{
     setfilteryear(selectyear);
-  };
+  }; 
 
 
 
