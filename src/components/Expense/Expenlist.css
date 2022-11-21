@@ -1,0 +1,8 @@
+.expen-list{
+    list-style: none;
+    padding: 0;
+}
+.expen-list_fallback{
+    color: white;
+    text-align: center;
+}

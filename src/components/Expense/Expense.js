@@ -1,21 +1,34 @@
-import React , {useState} from 'react';
+import React, { useState } from "react";
 
-import Expenseitem from './Expenseitem';
-import Card from '../UI/Card';
-import Expenfilter from './Expenfilter';
-import './Expense.css';
+import Expenseitem from "./Expenseitem";
+import Card from "../UI/Card";
+import Expenfilter from "./Expenfilter";
+import "./Expense.css";
+import Expenlist from "./Expenlist";
 const Expense = (props) => {
-  const [filteryear , setfilteryear] = useState('2020');
-  const filterchnagehandler = selectyear =>{
+  const [filteryear, setfilteryear] = useState("2020");
+  const filterchnagehandler = (selectyear) => {
     setfilteryear(selectyear);
-  }; 
+  };
+  const filterExpen = props.items.filter((expen) => {
+    return expen.date.getFullYear().toString() === filteryear;
+  });
 
-
-
-
+  
   return (
-    <Card className="expense">
-      <Expenfilter selected={filteryear} onChangefilter={filterchnagehandler} />
+    <div>
+      <Card className="expense">
+        <Expenfilter
+          selected={filteryear}
+          onChangefilter={filterchnagehandler}
+        />
+       <Expenlist items={filterExpen}></Expenlist>
+      </Card>
+    </div>
+  );
+};
+{
+  /*
       <Expenseitem
         id={props.items[0].id}
         name={props.items[0].name}
@@ -43,9 +56,8 @@ const Expense = (props) => {
         tech={props.items[3].tech}
         com={props.items[3].com}
         date={props.items[3].date}
-      ></Expenseitem>
-    </Card>
-  );
+  ></Expenseitem>
+  */
 }
 
 export default Expense;

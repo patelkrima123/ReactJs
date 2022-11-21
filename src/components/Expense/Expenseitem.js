@@ -25,9 +25,9 @@ const Expenseitem = (props) =>{
           {props.name}
         </h2>
         <div className='expen-tech_com'>
-          {tech}
+          {props.tech}
           <br />
-          {com}
+          {props.com}
         </div>
       </div>
       <button onClick={clickhandler}>Change it</button>
